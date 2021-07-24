@@ -1,15 +1,17 @@
 # Reddit saves
 
-A script for exporting all your saved Reddit posts to a markdown table. `./main.py` contains comments documenting usage.
+A script for exporting all your saved Reddit posts to a markdown table. `./main.py` contains comments documenting usage. 
+
+If you want to see all my programming related saved posts you can view them [here](https://alanmasciangelo.github.io/posts/Saved-Reddit-posts).
 
 ## output
 
-The script outputs a file `saved_posts.md`
+The script outputs a file `saved_posts.md` that looks like this:
 
-### Saved Reddit posts
-|subreddit|title|thread|link|
+## Saved Reddit posts
+|subreddit|title|reddit thread|article|
 |-|-|-|-|
-| kubernetes | GitOps - the bad and the ugly | https://www.reddit.com/r/kubernetes/comments/imgqoj/gitops_the_bad_and_the_ugly/ | https://blog.container-solutions.com/gitops-the-bad-and-the-ugly |
-| programming | What I learned from Software Engineering at Google | https://www.reddit.com/r/programming/comments/om5afz/what_i_learned_from_software_engineering_at_google/ | https://swizec.com/blog/what-i-learned-from-software-engineering-at-google/ |
-| programming | For anyone who's curious about graphics and shader programming, this goes over how the GPU turns triangles and textures into pixels on the screen. It clarifies what the system does for you and at what point it calls the shader code you write. It should be useful no matter what language you're using | https://www.reddit.com/r/programming/comments/ol903b/for_anyone_whos_curious_about_graphics_and_shader/ | https://youtu.be/UVNnkDqcTGE |
-| programming | "Test Like You Fly" originated in the aerospace industry, with the intention of mitigating risks by pre-playing all expected in-flight scenarios in advance of actual flight. In this article, Tim Chambers introduces TLYF for the everyday software developer. | https://www.reddit.com/r/programming/comments/ok5rvs/test_like_you_fly_originated_in_the_aerospace/ | https://hint.io/blog/test-like-you-fly-1 |
+| programming | A simple stack overflow question becomes an interesting lesson in tech history (ZIP) | [thread](https://www.reddit.com/r/programming/comments/4ofej2/a_simple_stack_overflow_question_becomes_an/) | [article](http://stackoverflow.com/questions/20762094/how-are-zlib-gzip-and-zip-related-what-are-is-common-and-how-are-they-differen) |
+| programming | 11 podcasts I listen to to improve as a software engineer | [thread](https://www.reddit.com/r/programming/comments/4objpb/11_podcasts_i_listen_to_to_improve_as_a_software/) | [article](http://www.sleepeasysoftware.com/11-podcasts-that-will-make-you-a-better-software-engineer/) |
+| programming | How NASA writes C for spacecraft: "JPL Institutional Coding Standard for the C Programming Language" | [thread](https://www.reddit.com/r/programming/comments/4nexot/how_nasa_writes_c_for_spacecraft_jpl/) | [article](http://lars-lab.jpl.nasa.gov/JPL_Coding_Standard_C.pdf) |
+| programming | Google has started a new video series teaching machine learning and I can actually understand it. | [thread](https://www.reddit.com/r/programming/comments/4eyyhm/google_has_started_a_new_video_series_teaching/) | [article](https://www.youtube.com/watch?v=cKxRvEZd3Mw) |
