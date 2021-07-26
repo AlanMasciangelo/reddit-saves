@@ -39,20 +39,19 @@ params = {'limit':100}
 res = requests.get(f"https://oauth.reddit.com/user/{username}/saved", headers=headers, params=params)
 data = res.json()['data']
 
-# pagination and filter
 posts = []
-first=True
-while(data['after'] or first):
-        first=False
-        # t3 is saved posts, t1 is saved comments if you're into that.
-        posts += list(filter(lambda child: child['kind'] == 't3' and ( not subreddits or child['data']['subreddit'] in subreddits ) , data['children']))
+# t3 is saved posts, t1 is saved comments if you're into that.
+filter_posts = lambda d: list(filter(lambda child: child['kind'] == 't3' and ( not subreddits or child['data']['subreddit'] in subreddits ) , d['children']))
+posts += filter_posts(data)
+while(data['after']):    
         params = {'limit':100, 'after': data['after'] }
         res = requests.get(f"https://oauth.reddit.com/user/{username}/saved", headers=headers, params=params)
-        data = res.json()['data']        
+        data = res.json()['data']
+        posts += filter_posts(data)      
 
 with open('saved_posts.md','w',encoding='utf-8-sig') as f:
         f.write('## Saved Reddit posts\n')
-        f.write('|subreddit|title|thread|link|\n')
+        f.write('|subreddit|title|reddit thread|article|\n')
         f.write('|-|-|-|-|\n')
        
         posts.sort(key=lambda p: p['data']['subreddit'])
@@ -60,5 +59,5 @@ with open('saved_posts.md','w',encoding='utf-8-sig') as f:
                 data=post['data']
                 # permalink is always the url to the post after https://www.reddit.com
                 # url can be the same link for self posts or the link to articles, pics, vids if a link post
-                line=f"| {data['subreddit']} | {data.get('title', '')} | https://www.reddit.com{data['permalink']} | {data['url']} |"
+                line=f"| {data['subreddit']} | {data.get('title', '')} | [thread](https://www.reddit.com{data['permalink']}) | [article]({data['url']}) |"
                 f.write(line + '\n')
