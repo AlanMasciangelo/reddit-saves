@@ -52,7 +52,7 @@ while(data['after']):
 with open('saved_posts.md','w',encoding='utf-8-sig') as f:
         f.write('## Saved Reddit posts\n')
         f.write('|subreddit|title|reddit thread|article|\n')
-        f.write('|-|-|-|-|\n')
+        f.write('|:---|:------------|:---|---|\n')
        
         posts.sort(key=lambda p: p['data']['subreddit'])
         for post in posts:
